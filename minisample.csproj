@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<NativeLib>Shared</NativeLib>
+		<TargetArchitecture>wasm</TargetArchitecture>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<MSBuildEnableWorkloadResolver>false</MSBuildEnableWorkloadResolver>
+		<TargetFramework>net7.0</TargetFramework>
+		<EmitLegacyAssetsFileItems>true</EmitLegacyAssetsFileItems>
+		<EmccExtraArgs>--no-entry -s EXPORTED_FUNCTIONS=[_NativeAOT_StaticInitialization,_hello]</EmccExtraArgs>
+		<SelfContained>true</SelfContained>
+		<RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Works with these versions: -->
+		<!-- <KnownILCompilerPack Update="Microsoft.DotNet.ILCompiler" TargetFramework="net7.0" ILCompilerPackNamePattern="runtime.**RID**.Microsoft.DotNet.ILCompiler.LLVM" ILCompilerPackVersion="7.0.0-preview.5.23113.1" ILCompilerRuntimeIdentifiers="browser-wasm;linux-musl-x64;linux-x64;win-x64;linux-arm;linux-arm64;linux-musl-arm;linux-musl-arm64;osx-arm64;osx-x64;win-arm;win-arm64;win-x86" />
+		<PackageReference Include="Microsoft.DotNet.ILCompiler.LLVM" Version="7.0.0-preview.5.23113.1" />
+		<PackageReference Include="runtime.win-x64.Microsoft.DotNet.ILCompiler.LLVM" Version="7.0.0-preview.5.23113.1" /> -->
+
+		<!-- Doesn't work with these versions: -->
+
+		<KnownILCompilerPack Update="Microsoft.DotNet.ILCompiler" TargetFramework="net7.0" ILCompilerPackNamePattern="runtime.**RID**.Microsoft.DotNet.ILCompiler.LLVM" ILCompilerPackVersion="8.0.0-alpha.1.23170.1" ILCompilerRuntimeIdentifiers="browser-wasm;linux-musl-x64;linux-x64;win-x64;linux-arm;linux-arm64;linux-musl-arm;linux-musl-arm64;osx-arm64;osx-x64;win-arm;win-arm64;win-x86" />
+		<PackageReference Include="Microsoft.DotNet.ILCompiler.LLVM" Version="8.0.0-alpha.1.23170.1" />
+		<PackageReference Include="runtime.win-x64.Microsoft.DotNet.ILCompiler.LLVM" Version="8.0.0-alpha.1.23170.1" />
+
+	</ItemGroup>
+
+</Project>
